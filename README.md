@@ -3,6 +3,7 @@
 Ansible role to install and manage node exporter
 
 To test it
+
 ```bash
 cd tests
 vagrant up
