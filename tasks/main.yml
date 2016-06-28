@@ -1,4 +1,8 @@
 ---
+- name: Deb dependencies
+  apt:
+    pkg: python-httplib2
+
 - name: Ensure node exporter group
   group:
     name: "{{ node_exporter_group }}"
