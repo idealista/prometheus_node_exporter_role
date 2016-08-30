@@ -1,4 +1,0 @@
----
-- hosts: all
-  roles:
-    - prometheus_node_exporter

@@ -2,14 +2,11 @@
 
 Ansible role to install and manage node exporter
 
-To test it
+To launch tests
 
 ```bash
-cd tests
-vagrant up
+molecule test
 ```
-
-Once the role its installed you can check the metrics on 10.0.0.2:9100/metrics
 
 You can add country, env and service roles to help identify machines on prometheus/grafana.
 
