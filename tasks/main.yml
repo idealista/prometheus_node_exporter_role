@@ -60,6 +60,7 @@
     owner: "{{ node_exporter_user }}"
     group: "{{ node_exporter_group }}"
   notify: restart node_exporter
+  when: node_exporter_service_roles is defined
 
 - name: Add daemon template
   template:
