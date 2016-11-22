@@ -1,4 +1,5 @@
-tests/playbook.retry
-tests/.cache
+playbook.retry
+.cache
 .molecule
 .vagrant
+tests/__pycache__

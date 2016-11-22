@@ -1,5 +1,5 @@
 ---
 - name: restart node_exporter
-  service:
+  systemd:
     name: node_exporter
     state: restarted
