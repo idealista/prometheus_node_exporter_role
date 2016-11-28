@@ -1,7 +1,7 @@
 ---
-node_exporter_version: 0.12.0
+node_exporter_version: 0.13.0
 node_exporter_package: "node_exporter-{{ node_exporter_version }}.linux-amd64.tar.gz"
-node_exporter_url: "https://github.com/prometheus/node_exporter/releases/download/{{ node_exporter_version }}/{{ node_exporter_package }}"
+node_exporter_url: "https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/{{ node_exporter_package }}"
 node_exporter_log_dir: /var/log/node_exporter
 node_exporter_log_file: "{{ node_exporter_log_dir }}/node_exporter.log"
 node_exporter_user: prometheus
@@ -12,3 +12,6 @@ node_exporter_textfile_collector: "{{ node_exporter_root_dir }}/textfile_collect
 
 node_exporter_options:
   - "collector.textfile.directory {{ node_exporter_textfile_collector }}"
+  - "collectors.enabled 'textfile,diskstats,filesystem,loadavg,meminfo,netdev,stat'"
+  - "collector.diskstats.ignored-devices '^(ram|dm|rootfs|loop|fd|(h|s|v|xv)d[a-z]|nvme\\d+n\\d+p)\\d+$'"
+  - "collector.filesystem.ignored-fs-types '^(sys|proc|rootfs|rpc_pipefs|tmpfs)fs$'"
