@@ -16,4 +16,10 @@ node_exporter_env_role: local
 node_exporter_service_roles:
   - vagrant
   - test
+node_exporter_path: metrics
+node_exporter_port: 9100
 ```
+
+FAQ
+
+[Molecule?](http://docu.sys.idealista/display/DO/Testing+de+roles)

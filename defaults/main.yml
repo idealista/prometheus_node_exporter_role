@@ -9,9 +9,13 @@ node_exporter_group: prometheus
 node_exporter_root_dir: /opt/node_exporter
 node_exporter_bin_dir: "{{ node_exporter_root_dir }}/bin"
 node_exporter_textfile_collector: "{{ node_exporter_root_dir }}/textfile_collector"
+node_exporter_port: "9100"
+node_exporter_path: "metrics"
 
 node_exporter_options:
   - "collector.textfile.directory {{ node_exporter_textfile_collector }}"
   - "collectors.enabled 'textfile,diskstats,filesystem,loadavg,meminfo,netdev,stat'"
   - "collector.diskstats.ignored-devices '^(ram|dm|rootfs|loop|fd|(h|s|v|xv)d[a-z]|nvme\\d+n\\d+p)\\d+$'"
   - "collector.filesystem.ignored-fs-types '^(sys|proc|rootfs|rpc_pipefs|tmpfs)fs$'"
+  - "web.listen-address :{{ node_exporter_port }}"
+  - "web.telemetry-path '/{{ node_exporter_path }}'"
