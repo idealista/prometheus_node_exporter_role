@@ -1,0 +1,8 @@
+---
+
+- name: NODE_EXPORTER | Configuring service
+  systemd:
+    name: node_exporter
+    state: "{{ node_exporter_service_state }}"
+    enabled: "{{ node_exporter_service_enabled }}"
+    daemon_reload: yes

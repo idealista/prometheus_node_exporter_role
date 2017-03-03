@@ -5,7 +5,7 @@ After=network-online.target
 
 [Service]
 Restart=on-failure
-ExecStart=/bin/sh -c "{{ node_exporter_bin_dir }}/node_exporter {% for option in node_exporter_options %}-{{ option }} {% endfor %}> {{ node_exporter_log_file }} 2>&1"
+ExecStart=/bin/sh -c "{{ node_exporter_bin_path }}/node_exporter {% for option in node_exporter_options %}-{{ option }} {% endfor %}> {{ node_exporter_log_path }}/{{ node_exporter_log_file }} 2>&1"
 User={{ node_exporter_user }}
 ExecReload=/bin/kill -HUP $MAINPID
 KillSignal=SIGTERM

@@ -1,0 +1,18 @@
+---
+
+- name: NODE_EXPORTER | Add machine roles
+  template:
+    src: roles.prom.j2
+    dest: "{{ node_exporter_textfile_collector }}/roles.prom"
+    owner: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_group }}"
+  notify: restart node_exporter
+  when: node_exporter_service_roles is defined
+
+- name: NODE_EXPORTER | Copy logrotate config
+  template:
+    src: logrotate.j2
+    dest: /etc/logrotate.d/node_exporter
+    mode: 0644
+    owner: root
+    group: root
