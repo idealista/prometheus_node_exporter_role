@@ -1,6 +1,7 @@
-playbook.retry
-.cache
+tests/playbook.retry
+tests/.cache
+tests/__pycache__
 .molecule
 .vagrant
-tests/__pycache__
+.cache
 *.iml

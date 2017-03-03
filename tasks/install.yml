@@ -1,0 +1,78 @@
+---
+
+- name: NODE_EXPORTER | Installing dependencies
+  apt:
+    pkg: "{{ item }}"
+    state: present
+  with_items: "{{ node_exporter_required_libs }}"
+  tags:
+    skip_ansible_lint
+
+- name: NODE_EXPORTER | Ensure node_exporter group
+  group:
+    name: "{{ node_exporter_group }}"
+    system: yes
+    state: present
+
+- name: NODE_EXPORTER | Ensure node_exporter user
+  user:
+    name: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_group }}"
+    system: yes
+    shell: /sbin/nologin
+    createhome: no
+
+- name: NODE_EXPORTER | Ensure skeleton paths
+  file:
+    dest: "{{ item }}"
+    owner: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_user }}"
+    state: directory
+  with_items:
+    - "{{ node_exporter_root_path }}"
+    - "{{ node_exporter_bin_path }}"
+    - "{{ node_exporter_log_path }}"
+    - "{{ node_exporter_textfile_collector }}"
+
+- name: NODE_EXPORTER | Check node_exporter version
+  command: node_exporter -version
+  register: node_exporter_check
+  changed_when: false
+  ignore_errors: true
+
+- name: NODE_EXPORTER | Download package
+  get_url:
+    url: "{{ node_exporter_url }}"
+    dest: /tmp
+  when: 'node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version {{ node_exporter_version }}" not in node_exporter_check.stderr'
+
+- name: NODE_EXPORTER | Extract package
+  unarchive:
+    copy: no
+    src: "/tmp/{{ node_exporter_package }}"
+    dest: /tmp
+  when: 'node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version {{ node_exporter_version }}" not in node_exporter_check.stderr'
+
+- name: NODE_EXPORTER | Copy binary
+  copy:
+    src: "/tmp/{{ node_exporter_release_name }}/node_exporter"
+    dest: "{{ node_exporter_bin_path }}/node_exporter"
+    owner: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_group }}"
+    remote_src: True
+    mode: 0755
+  when: 'node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version {{ node_exporter_version }}" not in node_exporter_check.stderr'
+  notify: restart node_exporter
+
+- name: NODE_EXPORTER | Link binary
+  file:
+    src: "{{ node_exporter_bin_path }}/node_exporter"
+    dest: "/usr/bin/node_exporter"
+    state: link
+
+- name: NODE_EXPORTER | Copy Daemon script
+  template:
+    src: node_exporter.service.j2
+    dest: /etc/systemd/system/node_exporter.service
+    mode: 0644
+  notify: restart node_exporter
