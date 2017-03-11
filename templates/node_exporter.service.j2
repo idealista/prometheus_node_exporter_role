@@ -4,10 +4,14 @@ Requires=network-online.target
 After=network-online.target
 
 [Service]
-Restart=on-failure
-ExecStart=/bin/sh -c "{{ node_exporter_bin_path }}/node_exporter {% for option in node_exporter_options %}-{{ option }} {% endfor %}> {{ node_exporter_log_path }}/{{ node_exporter_log_file }} 2>&1"
+PrivateTmp=yes
 User={{ node_exporter_user }}
+Group={{ node_exporter_group }}
+RuntimeDirectory=node_exporter
+ExecStart=/bin/sh -c "{{ node_exporter_bin_path }}/node_exporter {% for option in node_exporter_options %}-{{ option }} {% endfor %}> {{ node_exporter_log_path }}/{{ node_exporter_log_file }} 2>&1"
+ExecStartPost=/bin/sh -c "echo $MAINPID > /run/node_exporter/node_exporter.pid"
 ExecReload=/bin/kill -HUP $MAINPID
+PIDFile=/run/node_exporter/node_exporter.pid
 KillSignal=SIGTERM
 
 [Install]
