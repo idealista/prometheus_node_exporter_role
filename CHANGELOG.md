@@ -6,7 +6,7 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter-role/tree/develop)
 
-## [1.2.2](https://github.com/idealista/prometheus_node_exporter-role/tree/1.2.3)
+## [1.2.3](https://github.com/idealista/prometheus_node_exporter-role/tree/1.2.3)
 [Full Changelog](https://github.com/idealista/prometheus_node_exporter-role/compare/1.2.2...1.2.3)
 ### Fixed
 - *[#5](https://github.com/idealista/prometheus_node_exporter-role/issues/5) Fix check version* @jmonterrubio
