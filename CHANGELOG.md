@@ -6,6 +6,12 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter-role/tree/develop)
 
+
+## [1.2.5](https://github.com/idealista/prometheus_node_exporter-role/tree/1.2.5)
+[Full Changelog](https://github.com/idealista/prometheus_node_exporter-role/compare/1.2.4...1.2.5)
+### Fixed
+- *[#12](https://github.com/idealista/prometheus_node_exporter-role/issues/12) Group variable is not used when skeleton paths are created* @sorobon
+
 ## [1.2.4](https://github.com/idealista/prometheus_node_exporter-role/tree/1.2.4)
 [Full Changelog](https://github.com/idealista/prometheus_node_exporter-role/compare/1.2.3...1.2.4)
 ### Fixed
