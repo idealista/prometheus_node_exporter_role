@@ -26,7 +26,7 @@
   file:
     dest: "{{ item }}"
     owner: "{{ node_exporter_user }}"
-    group: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_group }}"
     state: directory
   with_items:
     - "{{ node_exporter_root_path }}"
