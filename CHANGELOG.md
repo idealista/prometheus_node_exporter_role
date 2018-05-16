@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter-role/tree/develop)
+### Fixed
+- *Explicitly set get_url dest file name*
 
 
 ## [1.2.5](https://github.com/idealista/prometheus_node_exporter-role/tree/1.2.5)

@@ -43,7 +43,7 @@
 - name: NODE_EXPORTER | Download package
   get_url:
     url: "{{ node_exporter_url }}"
-    dest: /tmp
+    dest: "/tmp/{{ node_exporter_package }}"
   when: 'node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version {{ node_exporter_version }}" not in node_exporter_check.stdout'
 
 - name: NODE_EXPORTER | Extract package
