@@ -4,8 +4,6 @@ python: "2.7.12"
 sudo: required
 
 env:
-  - ansible_version: 2.2.1.0
-  - ansible_version: 2.3.1.0
   - ansible_version: 2.4.3.0
 
 services:
