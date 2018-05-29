@@ -44,14 +44,14 @@
   get_url:
     url: "{{ node_exporter_url }}"
     dest: "/tmp/{{ node_exporter_package }}"
-  when: 'node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version {{ node_exporter_version }}" not in node_exporter_check.stdout'
+  when: node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version " + node_exporter_version not in node_exporter_check.stdout
 
 - name: NODE_EXPORTER | Extract package
   unarchive:
     copy: no
     src: "/tmp/{{ node_exporter_package }}"
     dest: /tmp
-  when: 'node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version {{ node_exporter_version }}" not in node_exporter_check.stdout'
+  when: node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version " + node_exporter_version not in node_exporter_check.stdout
 
 - name: NODE_EXPORTER | Copy binary
   copy:
@@ -61,7 +61,7 @@
     group: "{{ node_exporter_group }}"
     remote_src: True
     mode: 0755
-  when: 'node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version {{ node_exporter_version }}" not in node_exporter_check.stdout'
+  when: node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version " + node_exporter_version not in node_exporter_check.stdout
   notify: restart node_exporter
 
 - name: NODE_EXPORTER | Link binary
