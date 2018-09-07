@@ -4,4 +4,6 @@
   systemd:
     name: node_exporter
     state: restarted
-  when: node_exporter_service_state != 'stopped'
+  when:
+    - node_exporter_service_state != 'stopped'
+    - node_exporter_manage_service

@@ -13,6 +13,8 @@ node_exporter_force_reinstall: false
 node_exporter_user: prometheus
 node_exporter_group: prometheus
 
+# manager service
+node_exporter_manage_service: True
 # start on boot
 node_exporter_service_enabled: True
 # current state: started, stopped
