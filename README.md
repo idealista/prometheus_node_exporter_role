@@ -2,7 +2,7 @@
 
 # Prometheus Node Exporter Ansible role
 
-This ansible role installs a Prometheus Node Exporter in a debian environment.
+This ansible role installs a Prometheus Node Exporter in a Debian environment.
 
 - [Getting Started](#getting-started)
 	- [Prerequisities](#prerequisities)
@@ -17,7 +17,7 @@ This ansible role installs a Prometheus Node Exporter in a debian environment.
 
 ## Getting Started
 
-These instructions will get you a copy of the role for your ansible playbook. Once launched, it will install an [Prometheus Node Exporter](https://github.com/prometheus/node_exporter) server in a Debian system.
+These instructions will get you a copy of the role for your Ansible playbook. Once launched, it will install an [Prometheus Node Exporter](https://github.com/prometheus/node_exporter) server in a Debian system.
 
 ### Prerequisities
 
@@ -79,9 +79,9 @@ See also the list of [contributors](https://github.com/idealista/prometheus_node
 
 ## License
 
-![Apache 2.0 Licence](https://img.shields.io/hexpm/l/plug.svg)
+![Apache 2.0 License](https://img.shields.io/hexpm/l/plug.svg)
 
-This project is licensed under the [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license - see the [LICENSE.txt](LICENSE.txt) file for details.
+This project is licensed under the [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) license - see the [LICENSE](LICENSE) file for details.
 
 ## Contributing
 
