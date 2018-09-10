@@ -6,3 +6,4 @@
     state: "{{ node_exporter_service_state }}"
     enabled: "{{ node_exporter_service_enabled }}"
     daemon_reload: yes
+  when: node_exporter_manage_service

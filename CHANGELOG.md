@@ -5,6 +5,8 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter-role/tree/develop)
+### Added
+- [#20](https://github.com/idealista/prometheus_node_exporter-role/pull/20) Add node_exporter_manage_service toggle to control service management
 ## [2.0.0](https://github.com/idealista/prometheus_node_exporter-role/tree/2.0.0)
 ### Changed
 - *[#17](https://github.com/idealista/java-role/issues/17) Update imports (deprecation warnings)* @jmonterrubio
