@@ -1,11 +1,18 @@
-# node_exporter-role changelog
+# Prometheus Node Exporter Role changelog
 
 All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter-role/tree/develop)
+
+## [2.1.0](https://github.com/idealista/prometheus_node_exporter-role/tree/2.1.0)
+[Full Changelog](https://github.com/idealista/prometheus_node_exporter-role/compare/2.0.0...2.1.0)
+### Added
+- *[#20](https://github.com/idealista/prometheus_node_exporter-role/pull/20) Add node_exporter_manage_service toggle to control service management* @kostyrev
+
 ## [2.0.0](https://github.com/idealista/prometheus_node_exporter-role/tree/2.0.0)
+[Full Changelog](https://github.com/idealista/prometheus_node_exporter-role/compare/1.2.6...2.0.0)
 ### Changed
 - *[#17](https://github.com/idealista/java-role/issues/17) Update imports (deprecation warnings)* @jmonterrubio
 
