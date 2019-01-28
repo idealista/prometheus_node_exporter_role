@@ -1,7 +1,7 @@
 ---
 - hosts: all
   roles:
-    - prometheus_node_exporter-role
+    - prometheus_node_exporter_role
   post_tasks:
     - name: Ensure test packages
       apt:
