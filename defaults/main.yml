@@ -33,7 +33,7 @@ node_exporter_path: "metrics"
 
 node_exporter_options:
   - "collector.textfile.directory {{ node_exporter_textfile_collector }}"
-  - "collectors.enabled 'textfile,diskstats,filesystem,loadavg,meminfo,netdev,stat'"
+  - "collectors.enabled 'textfile,diskstats,filesystem,loadavg,meminfo,netdev,stat,filefd'"
   - "collector.diskstats.ignored-devices '^(ram|dm|rootfs|loop|fd|(h|s|v|xv)d[a-z]|nvme\\d+n\\d+p)\\d+$'"
   - "collector.filesystem.ignored-fs-types '^(sys|proc|rootfs|rpc_pipefs|tmpfs)fs$'"
   - "web.listen-address :{{ node_exporter_port }}"
