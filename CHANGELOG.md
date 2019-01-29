@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter_role/tree/develop)
+### Changed
+- *[#25](https://github.com/idealista/prometheus_node_exporter_role/issues/25) Using '_' instead of '-' in role name* @jperera
 ### Added
 - *Update node_exporter version, adding compatibility with 0.14 broken changes* @jmonterrubio
 - *Add molecule 2 for testing purposes* @jmonterrubio
