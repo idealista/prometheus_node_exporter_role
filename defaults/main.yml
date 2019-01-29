@@ -1,7 +1,7 @@
 ---
 ## General
 
-node_exporter_version: 0.14.0
+node_exporter_version: 0.17.0
 node_exporter_release_system: linux-amd64
 
 # Set true to force the download and installation of the binary
