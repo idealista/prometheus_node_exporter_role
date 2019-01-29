@@ -66,7 +66,7 @@ molecule test
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.4.3.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.4.5.0-green.svg)
 ![Molecule](https://img.shields.io/badge/molecule-2.19.0-green.svg)
 
 ## Versioning
