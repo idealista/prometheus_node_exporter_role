@@ -6,6 +6,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter_role/tree/develop)
 ### Changed
 - *[#25](https://github.com/idealista/prometheus_node_exporter_role/issues/25) Using '_' instead of '-' in role name* @jperera
+### Added
+- *Update node_exporter version, adding compatibility with 0.14 broken changes* @jmonterrubio
+- *Add molecule 2 for testing purposes* @jmonterrubio
 
 ## [2.2.0](https://github.com/idealista/prometheus_node_exporter_role/tree/2.2.0)
 ### Changed

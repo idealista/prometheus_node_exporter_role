@@ -1,0 +1,52 @@
+group:
+  {{ node_exporter_group }}:
+    exists: true
+
+user:
+  {{ node_exporter_user }}:
+    exists: true
+    groups:
+      - {{ node_exporter_group }}
+
+file:
+  {{ node_exporter_root_path }}:
+    owner: {{ node_exporter_user }}
+    group: {{ node_exporter_group }}
+    exists: true
+    filetype: directory
+  {{ node_exporter_bin_path }}:
+    owner: {{ node_exporter_user }}
+    group: {{ node_exporter_group }}
+    exists: true
+    filetype: directory
+  {{ node_exporter_log_path }}:
+    owner: {{ node_exporter_user }}
+    group: {{ node_exporter_group }}
+    exists: true
+    filetype: directory
+  {{ node_exporter_environment_path }}:
+    owner: {{ node_exporter_user }}
+    group: {{ node_exporter_group }}
+    exists: true
+    filetype: directory
+  {{ node_exporter_environment_path }}/node_exporter:
+    owner: {{ node_exporter_user }}
+    group: {{ node_exporter_group }}
+    exists: true
+    contains:
+      - NODE_EXPORTER_COLLECTORS_ENABLED=textfile,diskstats,filesystem,loadavg,meminfo,netdev,stat,filefd
+      - NODE_EXPORTER_COLLECTOR_TEXTFILE_DIRECTORY=/opt/node_exporter/textfile_collector
+      - NODE_EXPORTER_COLLECTOR_DISKSTATS_IGNORED=^(ram|dm|rootfs|loop|fd|(h|s|v|xv)d[a-z]|nvme\\d+n\\d+p)\\d+$
+      - NODE_EXPORTER_COLLECTOR_FILESYSTEM_IGNORED=^(sys|proc|rootfs|rpc_pipefs|tmpfs)fs$
+      - NODE_EXPORTER_LOG_LEVEL=warn
+  /etc/systemd/system/node_exporter.service:
+    exists: true
+
+port:
+  tcp6:{{ node_exporter_port }}:
+    listening: true
+
+service:
+  node_exporter:
+    enabled: true
+    running: true

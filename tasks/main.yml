@@ -3,14 +3,14 @@
 - name: NODE_EXPORTER | Install
   import_tasks: install.yml
   tags:
-    - install
+    - node_exporter_install
 
 - name: NODE_EXPORTER | Configure
   import_tasks: config.yml
   tags:
-    - configure
+    - node_exporter_configure
 
 - name: NODE_EXPORTER | Service
   import_tasks: service.yml
   tags:
-    - service
+    - node_exporter_service
