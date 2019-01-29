@@ -11,16 +11,16 @@
 - name: NODE_EXPORTER | Ensure node_exporter group
   group:
     name: "{{ node_exporter_group }}"
-    system: yes
+    system: true
     state: present
 
 - name: NODE_EXPORTER | Ensure node_exporter user
   user:
     name: "{{ node_exporter_user }}"
     group: "{{ node_exporter_group }}"
-    system: yes
+    system: true
     shell: /usr/sbin/nologin
-    createhome: no
+    createhome: false
 
 - name: NODE_EXPORTER | Ensure skeleton paths
   file:
@@ -29,13 +29,14 @@
     group: "{{ node_exporter_group }}"
     state: directory
   with_items:
+    - "{{ node_exporter_environment_path }}"
     - "{{ node_exporter_root_path }}"
     - "{{ node_exporter_bin_path }}"
     - "{{ node_exporter_log_path }}"
-    - "{{ node_exporter_textfile_collector }}"
+    - "{{ node_exporter_textfile_collector_dir }}"
 
 - name: NODE_EXPORTER | Check node_exporter version
-  command: node_exporter -version
+  command: "{{ _node_exporter_command_version_check }}"
   register: node_exporter_check
   changed_when: false
   ignore_errors: true
@@ -48,7 +49,7 @@
 
 - name: NODE_EXPORTER | Extract package
   unarchive:
-    copy: no
+    copy: false
     src: "/tmp/{{ node_exporter_package }}"
     dest: /tmp
   when: node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version " + node_exporter_version not in node_exporter_check.stdout
@@ -59,7 +60,7 @@
     dest: "{{ node_exporter_bin_path }}/node_exporter"
     owner: "{{ node_exporter_user }}"
     group: "{{ node_exporter_group }}"
-    remote_src: True
+    remote_src: true
     mode: 0755
   when: node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version " + node_exporter_version not in node_exporter_check.stdout
   notify: restart node_exporter

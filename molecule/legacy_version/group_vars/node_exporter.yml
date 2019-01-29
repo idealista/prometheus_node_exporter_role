@@ -1,7 +1,9 @@
 ---
+node_exporter_version: 0.13.0
 node_exporter_country_role: es
 node_exporter_env_role: pre
 node_exporter_service_roles:
   - 'prometheus_node_exporter'
 node_exporter_port: 9100
 node_exporter_path: prometheus
+

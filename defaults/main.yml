@@ -1,7 +1,7 @@
 ---
 ## General
 
-node_exporter_version: 0.13.0
+node_exporter_version: 0.14.0
 node_exporter_release_system: linux-amd64
 
 # Set true to force the download and installation of the binary
@@ -14,27 +14,31 @@ node_exporter_user: prometheus
 node_exporter_group: prometheus
 
 # manager service
-node_exporter_manage_service: True
+node_exporter_manage_service: true
 # start on boot
-node_exporter_service_enabled: True
+node_exporter_service_enabled: true
 # current state: started, stopped
 node_exporter_service_state: started
 
 # Files & Paths
+node_exporter_environment_path: /etc/default
 node_exporter_log_path: /var/log/node_exporter
 node_exporter_log_file: "node_exporter.log"
 node_exporter_root_path: /opt/node_exporter
 node_exporter_bin_path: "{{ node_exporter_root_path }}/bin"
-node_exporter_textfile_collector: "{{ node_exporter_root_path }}/textfile_collector"
+
+# Log
+node_exporter_log_level: warn  # [debug, info, warn, error, fatal]
 
 # Port & path
+node_exporter_host_name: "{{ ansible_nodename }}"
 node_exporter_port: 9100
-node_exporter_path: "metrics"
+node_exporter_path: metrics
 
-node_exporter_options:
-  - "collector.textfile.directory {{ node_exporter_textfile_collector }}"
-  - "collectors.enabled 'textfile,diskstats,filesystem,loadavg,meminfo,netdev,stat,filefd'"
-  - "collector.diskstats.ignored-devices '^(ram|dm|rootfs|loop|fd|(h|s|v|xv)d[a-z]|nvme\\d+n\\d+p)\\d+$'"
-  - "collector.filesystem.ignored-fs-types '^(sys|proc|rootfs|rpc_pipefs|tmpfs)fs$'"
-  - "web.listen-address :{{ node_exporter_port }}"
-  - "web.telemetry-path '/{{ node_exporter_path }}'"
+# Run options
+node_exporter_collectors_enabled: textfile,diskstats,filesystem,loadavg,meminfo,netdev,stat,filefd
+node_exporter_textfile_collector_dir: "{{ node_exporter_root_path }}/textfile_collector"
+node_exporter_collector_diskstats_ignored_devices: ^(ram|dm|rootfs|loop|fd|(h|s|v|xv)d[a-z]|nvme\\d+n\\d+p)\\d+$
+node_exporter_collector_filesystem_ignored_fs_types: ^(sys|proc|rootfs|rpc_pipefs|tmpfs)fs$
+
+node_exporter_config_extra_options: []
