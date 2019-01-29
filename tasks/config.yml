@@ -1,9 +1,17 @@
 ---
 
+- name: NODE_EXPORTER | Add environment file
+  template:
+    src: node_exporter.environment.j2
+    dest: "{{ node_exporter_environment_path }}/node_exporter"
+    owner: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_group }}"
+  notify: restart node_exporter
+
 - name: NODE_EXPORTER | Add machine roles
   template:
     src: roles.prom.j2
-    dest: "{{ node_exporter_textfile_collector }}/roles.prom"
+    dest: "{{ node_exporter_textfile_collector_dir }}/roles.prom"
     owner: "{{ node_exporter_user }}"
     group: "{{ node_exporter_group }}"
   notify: restart node_exporter

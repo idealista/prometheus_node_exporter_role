@@ -1,4 +1,7 @@
-![Logo](logo.gif)
+![Logo](https://raw.githubusercontent.com/idealista/prometheus_node_exporter_role/master/logo.gif)
+
+[![Build Status](https://travis-ci.org/idealista/prometheus_node_exporter_role.png)](https://travis-ci.org/idealista/prometheus_node_exporter_role)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-idealista.prometheus_node_exporter_role-B62682.svg)](https://galaxy.ansible.com/idealista/prometheus_node_exporter_role)
 
 # Prometheus Node Exporter Ansible role
 
@@ -21,17 +24,17 @@ These instructions will get you a copy of the role for your Ansible playbook. On
 
 ### Prerequisities
 
-Ansible 2.4.3.0 version installed.
+Ansible 2.4.5.0 version installed.
 Inventory destination should be a Debian environment.
 
-For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant](https://www.vagrantup.com/) as driver (with [landrush](https://github.com/vagrant-landrush/landrush) plugin) and [VirtualBox](https://www.virtualbox.org/) as provider.
+For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver.
 
 ### Installing
 
 Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
-- src: idealista.prometheus_node_exporter-role
+- src: idealista.prometheus_node_exporter_role
   version: 1.0.0
   name: prometheus_node_exporter
 ```
@@ -63,11 +66,12 @@ molecule test
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.4.3.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.4.5.0-green.svg)
+![Molecule](https://img.shields.io/badge/molecule-2.19.0-green.svg)
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/idealista/prometheus_node_exporter-role/tags).
+For the versions available, see the [tags on this repository](https://github.com/idealista/prometheus_node_exporter_role/tags).
 
 Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
 
@@ -75,7 +79,7 @@ Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGE
 
 * **Idealista** - *Work with* - [idealista](https://github.com/idealista)
 
-See also the list of [contributors](https://github.com/idealista/prometheus_node_exporter-role/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/idealista/prometheus_node_exporter_role/contributors) who participated in this project.
 
 ## License
 

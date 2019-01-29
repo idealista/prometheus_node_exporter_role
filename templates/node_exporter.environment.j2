@@ -1,0 +1,9 @@
+#
+# {{ ansible_managed }}
+#
+# Configuration for /etc/systemd/system/node_exporter.service
+NODE_EXPORTER_COLLECTORS_ENABLED={{ node_exporter_collectors_enabled | default('') }}
+NODE_EXPORTER_COLLECTOR_TEXTFILE_DIRECTORY={{ node_exporter_textfile_collector_dir | default('') }}
+NODE_EXPORTER_COLLECTOR_DISKSTATS_IGNORED={{ node_exporter_collector_diskstats_ignored_devices | default('') }}
+NODE_EXPORTER_COLLECTOR_FILESYSTEM_IGNORED={{ node_exporter_collector_filesystem_ignored_fs_types | default('') }}
+NODE_EXPORTER_LOG_LEVEL={{ node_exporter_log_level }}

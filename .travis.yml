@@ -1,26 +1,19 @@
 ---
 language: python
-python: "2.7.12"
+python: "2.7.13"
 sudo: required
-
-env:
-  - ansible_version: 2.4.3.0
-
 services:
   - docker
-
 install:
-  - pip install ansible==${ansible_version}
-  - pip install molecule==1.25.0
-  - pip install ansible-lint==3.4.20
-  - pip install testinfra==1.10.1
-  - pip install pytest==3.3.1
-  - pip install py==1.5.2
-  - pip install pluggy==0.6.0
-  - pip install docker
-
+  - pip install pipenv
+  - pipenv install -r test-requirements.txt --python 2.7
+env:
+  matrix:
+    - MOLECULE_DISTRO: debian8
+    - MOLECULE_DISTRO: debian9
 script:
-  - molecule test --driver docker
+  - export MOLECULE_DISTRO=${MOLECULE_DISTRO}
+  - pipenv run molecule test --all
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

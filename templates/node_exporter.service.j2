@@ -8,7 +8,21 @@ PrivateTmp=yes
 User={{ node_exporter_user }}
 Group={{ node_exporter_group }}
 RuntimeDirectory=node_exporter
-ExecStart=/bin/sh -c "{{ node_exporter_bin_path }}/node_exporter {% for option in node_exporter_options %}-{{ option }} {% endfor %}> {{ node_exporter_log_path }}/{{ node_exporter_log_file }} 2>&1"
+EnvironmentFile={{ node_exporter_environment_path }}/node_exporter
+ExecStart=/bin/sh -c "{{ node_exporter_bin_path }}/node_exporter \
+{% if _node_exporter_collectors_as_string_version %}
+{{ _node_exporter_config_param_selector }}collectors.enabled $NODE_EXPORTER_COLLECTORS_ENABLED \
+{% else %}
+{% for option in node_exporter_collectors_enabled.split(',') %}{{ _node_exporter_config_param_selector }}collector.{{option}} {% endfor %}\
+{% endif %}
+{{ _node_exporter_config_param_selector }}collector.textfile.directory $NODE_EXPORTER_COLLECTOR_TEXTFILE_DIRECTORY \
+{{ _node_exporter_config_param_selector }}collector.diskstats.ignored-devices $NODE_EXPORTER_COLLECTOR_DISKSTATS_IGNORED \
+{{ _node_exporter_config_param_selector }}collector.filesystem.ignored-fs-types $NODE_EXPORTER_COLLECTOR_FILESYSTEM_IGNORED \
+{{ _node_exporter_config_param_selector }}web.listen-address :{{ node_exporter_port }} \
+{{ _node_exporter_config_param_selector }}web.telemetry-path /{{ node_exporter_path }} \
+{{ _node_exporter_config_param_selector }}log.level $NODE_EXPORTER_LOG_LEVEL \
+{% for option in node_exporter_config_extra_options %}{{ _node_exporter_config_param_selector }}{{ option }} {% endfor %}\
+> {{ node_exporter_log_path }}/{{ node_exporter_log_file }} 2>&1"
 ExecStartPost=/bin/sh -c "echo $MAINPID > /run/node_exporter/node_exporter.pid"
 ExecReload=/bin/kill -HUP $MAINPID
 PIDFile=/run/node_exporter/node_exporter.pid
