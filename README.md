@@ -1,7 +1,7 @@
-![Logo](https://raw.githubusercontent.com/idealista/node_exporter_role/master/logo.gif)
+![Logo](https://raw.githubusercontent.com/idealista/prometheus_node_exporter_role/master/logo.gif)
 
-[![Build Status](https://travis-ci.org/idealista/node_exporter_role.png)](https://travis-ci.org/idealista/node_exporter_role)
-[![Ansible Galaxy](https://img.shields.io/badge/galaxy-idealista.node_exporter_role-B62682.svg)](https://galaxy.ansible.com/idealista/node_exporter_role)
+[![Build Status](https://travis-ci.org/idealista/prometheus_node_exporter_role.png)](https://travis-ci.org/idealista/prometheus_node_exporter_role)
+[![Ansible Galaxy](https://img.shields.io/badge/galaxy-idealista.prometheus_node_exporter_role-B62682.svg)](https://galaxy.ansible.com/idealista/prometheus_node_exporter_role)
 
 # Prometheus Node Exporter Ansible role
 
