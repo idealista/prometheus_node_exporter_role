@@ -31,7 +31,7 @@ For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Vagrant
 Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
-- src: idealista.prometheus_node_exporter-role
+- src: idealista.prometheus_node_exporter_role
   version: 1.0.0
   name: prometheus_node_exporter
 ```
@@ -67,7 +67,7 @@ molecule test
 
 ## Versioning
 
-For the versions available, see the [tags on this repository](https://github.com/idealista/prometheus_node_exporter-role/tags).
+For the versions available, see the [tags on this repository](https://github.com/idealista/prometheus_node_exporter_role/tags).
 
 Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGELOG.md) file.
 
@@ -75,7 +75,7 @@ Additionaly you can see what change in each version in the [CHANGELOG.md](CHANGE
 
 * **Idealista** - *Work with* - [idealista](https://github.com/idealista)
 
-See also the list of [contributors](https://github.com/idealista/prometheus_node_exporter-role/contributors) who participated in this project.
+See also the list of [contributors](https://github.com/idealista/prometheus_node_exporter_role/contributors) who participated in this project.
 
 ## License
 
