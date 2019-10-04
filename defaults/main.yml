@@ -2,7 +2,7 @@
 ## General
 
 node_exporter_version: 0.18.1
-node_exporter_release_system: linux-amd64
+node_exporter_release_system: "linux-{{ node_exporter_arch }}"
 node_exporter_required_libs:
   - python-httplib2
 
