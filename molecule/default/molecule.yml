@@ -9,10 +9,10 @@ lint:
     config-file: .yamllint
 
 platforms:
-  - name: node_exporter
+  - name: nodeexporter
     groups:
       - node_exporter
-    image: ${MOLECULE_DISTRO:-debian:stretch-slim}
+    image: ${MOLECULE_DISTRO:-debian:buster-slim}
     privileged: false
     capabilities:
       - SYS_ADMIN
@@ -21,6 +21,7 @@ platforms:
     tmpfs:
       - '/tmp'
     command: '/lib/systemd/systemd'
+    stop_signal: 'RTMIN+3'
 provisioner:
   name: ansible
   lint:
