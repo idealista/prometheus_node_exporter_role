@@ -24,7 +24,7 @@ These instructions will get you a copy of the role for your Ansible playbook. On
 
 ### Prerequisities
 
-Ansible 2.4.5.0 version installed.
+Ansible 2.8.x.x version installed.
 Inventory destination should be a Debian environment.
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver.
@@ -60,14 +60,25 @@ Look to the [defaults](defaults/main.yml) properties file to see the possible co
 
 ## Testing
 
+### Install dependencies
+
+```sh
+$ pipenv sync
 ```
-molecule test
+
+For more information read the [pipenv docs](https://docs.pipenv.org/).
+
+### Testing
+
+```sh
+$ pipenv run molecule test 
 ```
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.4.5.0-green.svg)
-![Molecule](https://img.shields.io/badge/molecule-2.19.0-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.8.0.0-green.svg)
+![Molecule](https://img.shields.io/badge/molecule-2.22.0-green.svg)
+![Goss](https://img.shields.io/badge/goss-0.3.7-green.svg)
 
 ## Versioning
 
