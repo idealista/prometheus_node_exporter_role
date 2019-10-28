@@ -19,7 +19,7 @@
     shell: /usr/sbin/nologin
     createhome: false
 
-- name: NODE_EXPORTER | Ensure skeleton paths
+- name: NODE_EXPORTER | Ensure skeleton bin and config paths
   file:
     dest: "{{ item }}"
     owner: "{{ node_exporter_user }}"
@@ -29,8 +29,17 @@
     - "{{ node_exporter_environment_path }}"
     - "{{ node_exporter_root_path }}"
     - "{{ node_exporter_bin_path }}"
-    - "{{ node_exporter_log_path }}"
     - "{{ node_exporter_textfile_collector_dir }}"
+
+- name: NODE_EXPORTER | Ensure skeleton log paths
+  file:
+    dest: "{{ item }}"
+    owner: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_group }}"
+    state: directory
+  with_items:
+    - "{{ node_exporter_log_path }}"
+  when: node_exporter_log_path is defined
 
 - name: NODE_EXPORTER | Check node_exporter version
   command: "{{ _node_exporter_command_version_check }}"

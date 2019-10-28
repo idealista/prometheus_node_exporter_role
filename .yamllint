@@ -14,5 +14,6 @@ rules:
   # truthy: disable
 
 ignore: |
-    .molecule/
-    molecule/
+  test_*yml
+  .molecule/
+  molecule/

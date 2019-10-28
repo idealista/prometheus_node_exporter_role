@@ -22,6 +22,7 @@ This ansible role installs a Prometheus Node Exporter in a Debian environment.
 
 These instructions will get you a copy of the role for your Ansible playbook. Once launched, it will install an [Prometheus Node Exporter](https://github.com/prometheus/node_exporter) server in a Debian system.
 
+*Note:* Beginning with the 4.0 version, the default behaviour is the service sending logs to systemd's journal instead to a log file. You can change it modifying the necessary ansible vars (see defaults/main.yml)
 ### Prerequisities
 
 Ansible 2.8.x.x version installed.
@@ -35,7 +36,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.prometheus_node_exporter_role
-  version: 1.0.0
+  version: 4.0.0
   name: prometheus_node_exporter
 ```
 

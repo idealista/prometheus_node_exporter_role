@@ -11,8 +11,11 @@ node_exporter_force_reinstall: false
 
 ## Files & Paths
 node_exporter_environment_path: /etc/default
-node_exporter_log_path: /var/log/node_exporter
-node_exporter_log_file: "node_exporter.log"
+# node_exporter_log_path: /var/log/node_exporter
+# node_exporter_log_file: node_exporter.log
+node_exporter_log_output: journal
+# If you need output to a file, you can use file:{{ node_exporter_log_path }}/{{ redis_exporter_log_file }}, append:..., rsyslog and other
+# options in Debian 10 (see https://www.freedesktop.org/software/systemd/man/systemd.exec.html)
 node_exporter_root_path: /opt/node_exporter
 node_exporter_bin_path: "{{ node_exporter_root_path }}/bin"
 node_exporter_package: "node_exporter-{{ node_exporter_version }}.{{ node_exporter_release_system }}.tar.gz"

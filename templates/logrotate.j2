@@ -9,6 +9,6 @@
   delaycompress
   create 664 {{ node_exporter_user }} {{ node_exporter_group }}
   postrotate
-        [ ! -f /run/node_exporter/node_exporter.pid ] || systemctl restart node_exporter.service
+        systemctl restart node_exporter.service
   endscript
 }

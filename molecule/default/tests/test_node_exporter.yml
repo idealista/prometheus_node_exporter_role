@@ -19,11 +19,18 @@ file:
     group: {{ node_exporter_group }}
     exists: true
     filetype: directory
-  {{ node_exporter_log_path }}:
+{% if redis_exporter_log_path is defined %}
+   {{ node_exporter_log_path }}:
     owner: {{ node_exporter_user }}
     group: {{ node_exporter_group }}
     exists: true
     filetype: directory
+  {{ node_exporter_log_path }}/{{ node_exporter_log_file }}:
+    owner: root
+    group: root
+    exists: true
+    filetype: file
+{% endif %}
   {{ node_exporter_environment_path }}:
     owner: {{ node_exporter_user }}
     group: {{ node_exporter_group }}
