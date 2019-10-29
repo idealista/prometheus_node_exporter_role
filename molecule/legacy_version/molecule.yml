@@ -9,17 +9,19 @@ lint:
     config-file: .yamllint
 
 platforms:
-  - name: node_exporter-${MOLECULE_DISTRO:-debian9}
+  - name: nodeexporter
     groups:
       - node_exporter
-    image: geerlingguy/docker-${MOLECULE_DISTRO:-debian9}-ansible
-    privileged: true
+    image: ${MOLECULE_DISTRO:-debian:buster-slim}
+    privileged: false
     capabilities:
       - SYS_ADMIN
     volumes:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
+    tmpfs:
+      - '/tmp'
     command: '/lib/systemd/systemd'
-
+    stop_signal: 'RTMIN+3'
 provisioner:
   name: ansible
   lint:

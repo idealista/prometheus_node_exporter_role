@@ -5,8 +5,5 @@
   tasks:
     - name: installing test required libs
       apt:
-        pkg: "{{ item }}"
+        pkg: "{{ node_exporter_test_packages }}"
         state: present
-      with_items:
-        - net-tools
-        - netcat

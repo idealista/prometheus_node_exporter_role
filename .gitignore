@@ -1,6 +1,6 @@
 tests/playbook.retry
 tests/.cache
-tests/__pycache__
+__pycache__
 .pytest_cache
 .molecule
 .vagrant
@@ -11,5 +11,3 @@ tests/__pycache__
 .project
 
 *.pyc
-Pipfile
-Pipfile.lock
