@@ -6,4 +6,6 @@ node_exporter_service_roles:
   - 'prometheus_node_exporter'
 node_exporter_port: 9100
 node_exporter_path: prometheus
-
+node_exporter_test_packages:
+  - net-tools
+  - netcat

@@ -2,11 +2,8 @@
 
 - name: NODE_EXPORTER | Installing dependencies
   apt:
-    pkg: "{{ item }}"
+    pkg: "{{ node_exporter_required_libs }}"
     state: present
-  with_items: "{{ node_exporter_required_libs }}"
-  tags:
-    skip_ansible_lint
 
 - name: NODE_EXPORTER | Ensure node_exporter group
   group:
@@ -22,7 +19,7 @@
     shell: /usr/sbin/nologin
     createhome: false
 
-- name: NODE_EXPORTER | Ensure skeleton paths
+- name: NODE_EXPORTER | Ensure skeleton bin and config paths
   file:
     dest: "{{ item }}"
     owner: "{{ node_exporter_user }}"
@@ -32,8 +29,17 @@
     - "{{ node_exporter_environment_path }}"
     - "{{ node_exporter_root_path }}"
     - "{{ node_exporter_bin_path }}"
-    - "{{ node_exporter_log_path }}"
     - "{{ node_exporter_textfile_collector_dir }}"
+
+- name: NODE_EXPORTER | Ensure skeleton log paths
+  file:
+    dest: "{{ item }}"
+    owner: "{{ node_exporter_user }}"
+    group: "{{ node_exporter_group }}"
+    state: directory
+  with_items:
+    - "{{ node_exporter_log_path }}"
+  when: node_exporter_log_path is defined
 
 - name: NODE_EXPORTER | Check node_exporter version
   command: "{{ _node_exporter_command_version_check }}"
@@ -44,25 +50,25 @@
 - name: NODE_EXPORTER | Download package
   get_url:
     url: "{{ node_exporter_url }}"
-    dest: "/tmp/{{ node_exporter_package }}"
-  when: node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version " + node_exporter_version not in node_exporter_check.stdout
+    dest: "{{ node_exporter_package_path }}"
+  when: node_exporter_force_reinstall or node_exporter_check is failed or "node_exporter, version " + node_exporter_version not in node_exporter_check.stdout
 
 - name: NODE_EXPORTER | Extract package
   unarchive:
     copy: false
-    src: "/tmp/{{ node_exporter_package }}"
-    dest: /tmp
-  when: node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version " + node_exporter_version not in node_exporter_check.stdout
+    src: "{{ node_exporter_package_path }}"
+    dest: "{{ node_exporter_download_path }}"
+  when: node_exporter_force_reinstall or node_exporter_check is failed or "node_exporter, version " + node_exporter_version not in node_exporter_check.stdout
 
 - name: NODE_EXPORTER | Copy binary
   copy:
-    src: "/tmp/{{ node_exporter_release_name }}/node_exporter"
+    src: "{{ node_exporter_download_path }}/{{ node_exporter_release_name }}/node_exporter"
     dest: "{{ node_exporter_bin_path }}/node_exporter"
     owner: "{{ node_exporter_user }}"
     group: "{{ node_exporter_group }}"
     remote_src: true
     mode: 0755
-  when: node_exporter_force_reinstall or node_exporter_check|failed or "node_exporter, version " + node_exporter_version not in node_exporter_check.stdout
+  when: node_exporter_force_reinstall or node_exporter_check is failed or "node_exporter, version " + node_exporter_version not in node_exporter_check.stdout
   notify: restart node_exporter
 
 - name: NODE_EXPORTER | Link binary
