@@ -19,7 +19,7 @@ file:
     group: {{ node_exporter_group }}
     exists: true
     filetype: directory
-{% if redis_exporter_log_path is defined %}
+{% if node_exporter_log_path is defined %}
    {{ node_exporter_log_path }}:
     owner: {{ node_exporter_user }}
     group: {{ node_exporter_group }}
