@@ -4,7 +4,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter_role/tree/develop)
-
+## [4.0.1](https://github.com/idealista/prometheus_node_exporter_role/tree/4.0.1)
+[Full Changelog](https://github.com/idealista/prometheus_node_exporter_role/compare/4.0.0...4.0.1)
+- *Fixed typos in vars* @frantsao
+-
 ## [4.0.0](https://github.com/idealista/prometheus_node_exporter_role/tree/4.0.0)
 [Full Changelog](https://github.com/idealista/prometheus_node_exporter_role/compare/3.0.0...4.0.0)
 - *[#32](https://github.com/idealista/prometheus_node_exporter_role/issues/32) Fixed systemd service configuration (changes default behaviour)* @frantsao

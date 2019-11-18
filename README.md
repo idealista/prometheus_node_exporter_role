@@ -36,7 +36,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.prometheus_node_exporter_role
-  version: 4.0.0
+  version: 4.0.1
   name: prometheus_node_exporter
 ```
 
