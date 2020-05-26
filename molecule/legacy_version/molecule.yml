@@ -3,10 +3,9 @@ dependency:
   name: galaxy
 driver:
   name: docker
-lint:
-  name: yamllint
-  options:
-    config-file: .yamllint
+lint: |
+    yamllint .
+      ansible-lint .
 
 platforms:
   - name: nodeexporter
@@ -29,6 +28,4 @@ provisioner:
 scenario:
   name: legacy_version
 verifier:
-  name: goss
-  lint:
-    name: yamllint
+  name: ansible
