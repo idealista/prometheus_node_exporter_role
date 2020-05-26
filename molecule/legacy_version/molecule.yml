@@ -19,6 +19,8 @@ platforms:
       - '/sys/fs/cgroup:/sys/fs/cgroup:ro'
     tmpfs:
       - '/tmp'
+      - '/run'
+      - '/run/lock'
     command: '/lib/systemd/systemd'
     stop_signal: 'RTMIN+3'
 provisioner:
