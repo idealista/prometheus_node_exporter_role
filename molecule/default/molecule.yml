@@ -5,7 +5,7 @@ driver:
   name: docker
 lint: |
     yamllint .
-      ansible-lint .
+    ansible-lint .
 
 platforms:
   - name: nodeexporter
