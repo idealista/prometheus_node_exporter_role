@@ -4,7 +4,7 @@ Requires=network-online.target
 After=network-online.target
 
 [Service]
-PrivateTmp={{ node_exporter_private_tmp | default('true') }}
+PrivateTmp={{ node_exporter_private_tmp }}
 User={{ node_exporter_user }}
 Group={{ node_exporter_group }}
 RuntimeDirectory=node_exporter
