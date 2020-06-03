@@ -33,7 +33,7 @@ _node_exporter_config_param_selector: --
 # Owner
 node_exporter_user: prometheus
 node_exporter_group: prometheus
-
+node_exporter_private_tmp: true
 # manager service
 node_exporter_manage_service: true
 # start on boot
