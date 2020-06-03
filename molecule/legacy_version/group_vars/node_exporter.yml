@@ -9,3 +9,4 @@ node_exporter_path: prometheus
 node_exporter_test_packages:
   - net-tools
   - netcat
+node_exporter_private_tmp: false
