@@ -25,7 +25,7 @@ These instructions will get you a copy of the role for your Ansible playbook. On
 *Note:* Beginning with the 4.0 version, the default behaviour is the service sending logs to systemd's journal instead to a log file. You can change it modifying the necessary ansible vars (see defaults/main.yml)
 ### Prerequisities
 
-Ansible 2.8.x.x version installed.
+Ansible 2.9.x.x version installed.
 Inventory destination should be a Debian environment.
 
 For testing purposes, [Molecule](https://molecule.readthedocs.io/) with [Docker](https://www.docker.com/) as driver.
@@ -36,7 +36,7 @@ Create or add to your roles dependency file (e.g requirements.yml):
 
 ```
 - src: idealista.prometheus_node_exporter_role
-  version: 4.0.1
+  version: 4.1.0
   name: prometheus_node_exporter
 ```
 
@@ -77,9 +77,9 @@ $ pipenv run molecule test
 
 ## Built With
 
-![Ansible](https://img.shields.io/badge/ansible-2.8.0.0-green.svg)
-![Molecule](https://img.shields.io/badge/molecule-2.22.0-green.svg)
-![Goss](https://img.shields.io/badge/goss-0.3.7-green.svg)
+![Ansible](https://img.shields.io/badge/ansible-2.9.9-green.svg)
+![Molecule](https://img.shields.io/badge/molecule-3.0.4-green.svg)
+![Goss](https://img.shields.io/badge/goss-0.3.11-green.svg)
 
 ## Versioning
 
