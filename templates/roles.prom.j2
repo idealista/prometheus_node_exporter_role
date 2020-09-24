@@ -1,5 +1,9 @@
-machine_country{role="{{ node_exporter_country_role|default('all') }}"} 1
-machine_env{role="{{ node_exporter_env_role|default('int') }}"} 1
 {% for role in node_exporter_service_roles %}
+{% if role is mapping %}
+{% for key, value in role.items() %}
+machine_{{ key }}{role="{{ value }}"} 1
+{% endfor %}
+{% else %}
 machine_role{role="{{ role }}"} 1
+{% endif %}
 {% endfor %}

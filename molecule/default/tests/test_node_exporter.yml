@@ -48,6 +48,14 @@ file:
       - NODE_EXPORTER_LOG_LEVEL=warn
   /etc/systemd/system/node_exporter.service:
     exists: true
+  {{ node_exporter_textfile_collector_dir }}/roles.prom:
+    owner: {{ node_exporter_user }}
+    group: {{ node_exporter_group }}
+    exists: true
+    contains:
+      - machine_role{role="prometheus_node_exporter"} 1
+      - machine_country{role="es"} 1
+      - machine_env{role="pro"} 1
 
 port:
   tcp6:{{ node_exporter_port }}:

@@ -55,4 +55,7 @@ node_exporter_textfile_collector_dir: "{{ node_exporter_root_path }}/textfile_co
 node_exporter_collector_diskstats_ignored_devices: ^(ram|dm|rootfs|loop|fd|(h|s|v|xv)d[a-z]|nvme\\d+n\\d+p)\\d+$
 node_exporter_collector_filesystem_ignored_fs_types: ^(sys|proc|rootfs|rpc_pipefs|tmpfs)fs$
 
+# Roles
+node_exporter_service_roles: []
+
 node_exporter_config_extra_options: []
