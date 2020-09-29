@@ -48,6 +48,14 @@ file:
       - NODE_EXPORTER_LOG_LEVEL=warn
   /etc/systemd/system/node_exporter.service:
     exists: true
+  {{ node_exporter_textfile_collector_dir }}/roles.prom:
+    owner: {{ node_exporter_user }}
+    group: {{ node_exporter_group }}
+    exists: true
+  {{ node_exporter_textfile_collector_dir }}/env.prom:
+    owner: {{ node_exporter_user }}
+    group: {{ node_exporter_group }}
+    exists: true
 
 port:
   tcp6:{{ node_exporter_port }}:
@@ -57,3 +65,13 @@ service:
   node_exporter:
     enabled: true
     running: true
+
+http:
+  http://localhost:9100:
+    status: 200
+  http://localhost:9100/prometheus:
+      status: 200
+      body:
+        - machine_role{role="db"} 1
+        - machine_env{env="devel",region="eu-east-1"} 1
+        - virt_env{cpu="4"} 1

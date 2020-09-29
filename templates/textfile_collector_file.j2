@@ -1,0 +1,9 @@
+{% for metric in metrics %}
+{{ metric.metric_name }}{ 
+{%- for label in metric.metric_labels %}
+{%- for key, value in label.items() %}
+{{ key }}="{{ value }}",
+{%- endfor %}
+{%- endfor %}
+ } 1
+{% endfor %}
