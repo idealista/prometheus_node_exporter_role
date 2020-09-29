@@ -8,7 +8,9 @@ This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a ch
 ## [5.0.0](https://github.com/idealista/prometheus_node_exporter_role/tree/5.0.0)
 [Full Changelog](https://github.com/idealista/prometheus_node_exporter_role/compare/4.1.0...5.0.0)
 ### Breaking changes
- - *[#1](https://github.com/idealista/prometheus_node_exporter_role/issues/1) Removed idealista specific deployment constraints; updated goss version* @ablopez
+ - *[#1](https://github.com/idealista/prometheus_node_exporter_role/issues/1) Removed idealista specific deployment constraints* @blalop
+### Added
+- *Updated goss version* @blalop
 
 ## [4.1.0](https://github.com/idealista/prometheus_node_exporter_role/tree/4.1.0)
 [Full Changelog](https://github.com/idealista/prometheus_node_exporter_role/compare/4.0.1...4.1.0)
