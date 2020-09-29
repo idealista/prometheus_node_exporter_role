@@ -56,6 +56,11 @@ node_exporter_collector_diskstats_ignored_devices: ^(ram|dm|rootfs|loop|fd|(h|s|
 node_exporter_collector_filesystem_ignored_fs_types: ^(sys|proc|rootfs|rpc_pipefs|tmpfs)fs$
 
 # Roles
-node_exporter_service_roles: []
+#node_exporter_textfile_collector_files:
+#  - "filename":
+#    - metric_name: "metric_name"
+#      metric_labels:
+#        - "label1": "value1"
+#        - "label2": "value2"
 
 node_exporter_config_extra_options: []

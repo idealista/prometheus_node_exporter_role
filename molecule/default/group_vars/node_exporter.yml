@@ -1,11 +1,22 @@
 ---
-node_exporter_service_roles:
-  - 'prometheus_node_exporter'
-  - 'country': 'es'
-  - 'env': 'pro'
+
 node_exporter_port: 9100
 node_exporter_path: prometheus
 node_exporter_test_packages:
   - net-tools
   - netcat
 node_exporter_private_tmp: false
+
+node_exporter_textfile_collector_files:
+  - "roles":
+    - metric_name: "machine_role"
+      metric_labels:
+        - "role": "db"
+  - "env":
+    - metric_name: "machine_env"
+      metric_labels:
+        - "env": "devel"
+        - "region": "eu-east-1"
+    - metric_name: "virt_env"
+      metric_labels:
+        - "cpu": "4"
