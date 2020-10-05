@@ -19,4 +19,4 @@ _node_exporter_arch_map:
   armv7l: 'armv7'
   armv6l: 'armv6'
 
-node_exporter_arch: "{{ _node_exporter_arch_map[ansible_architecture] | default(ansible_architecture) }}"
+node_exporter_arch: "{{ _node_exporter_arch_map[ansible_architecture] }}"
