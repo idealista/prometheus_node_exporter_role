@@ -4,8 +4,11 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter_role/tree/develop)
-### Changed
- - *[#46](https://github.com/idealista/prometheus_node_exporter_role/issues/46) Add support for other architectures than amd64*
+
+## [5.1.0](https://github.com/idealista/prometheus_node_exporter_role/tree/5.1.0)
+[Full Changelog](https://github.com/idealista/prometheus_node_exporter_role/compare/5.0.0...5.1.0)
+### Added
+ - *[#46](https://github.com/idealista/prometheus_node_exporter_role/issues/46) Add support for other architectures than amd64* @tutte
 
 ## [5.0.0](https://github.com/idealista/prometheus_node_exporter_role/tree/5.0.0)
 [Full Changelog](https://github.com/idealista/prometheus_node_exporter_role/compare/4.1.0...5.0.0)
