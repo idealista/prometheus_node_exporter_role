@@ -1,17 +1,5 @@
 ---
 
-node_exporter_required_libs:
-  - python-httplib2
-
-node_exporter_release_name: "node_exporter-{{ node_exporter_version }}.{{ node_exporter_release_system }}"
-node_exporter_package: "node_exporter-{{ node_exporter_version }}.{{ node_exporter_release_system }}.tar.gz"
-node_exporter_url: "https://github.com/prometheus/node_exporter/releases/download/v{{ node_exporter_version }}/{{ node_exporter_package }}"
-
-_node_exporter_version_all: "{{ node_exporter_version.split('.') }}"
-_node_exporter_collectors_as_string_version: "{{ _node_exporter_version_all[0] | int == 0 and _node_exporter_version_all[1] | int < 15 }}"
-_node_exporter_command_version_check: "node_exporter {{ _node_exporter_collectors_as_string_version | ternary('-','--') }}version"
-_node_exporter_config_param_selector: --
-
 _node_exporter_arch_map:
   i386: '386'
   x86_64: 'amd64'
