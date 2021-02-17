@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter_role/tree/develop)
+### Changed
+ - *[#47](https://github.com/idealista/prometheus_node_exporter_role/issues/47) Logrotate configuration is now optional (By default it is is still beign installed).* @vsuarez
 
 ## [5.1.0](https://github.com/idealista/prometheus_node_exporter_role/tree/5.1.0)
 [Full Changelog](https://github.com/idealista/prometheus_node_exporter_role/compare/5.0.0...5.1.0)
