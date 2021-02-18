@@ -13,6 +13,7 @@ node_exporter_force_reinstall: false
 node_exporter_environment_path: /etc/default
 # node_exporter_log_path: /var/log/node_exporter
 # node_exporter_log_file: node_exporter.log
+node_exporter_logrotate_enabled: true
 node_exporter_log_output: journal
 # If you need output to a file, you can use file:{{ node_exporter_log_path }}/{{ node_exporter_log_file }}, append:..., rsyslog and other
 # options in Debian 10 (see https://www.freedesktop.org/software/systemd/man/systemd.exec.html)
