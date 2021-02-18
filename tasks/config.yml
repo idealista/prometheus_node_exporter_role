@@ -28,4 +28,4 @@
     mode: 0644
     owner: root
     group: root
-  when: node_exporter_log_path is defined
+  when: node_exporter_log_path is defined and node_exporter_logrotate_enabled
