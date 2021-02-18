@@ -4,7 +4,8 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter_role/tree/develop)
-
+### Changed
+ - *[#51](https://github.com/idealista/prometheus_node_exporter_role/issues/1) Default node_exporter version is now 1.11.1* @vsuarez
 ## [5.1.0](https://github.com/idealista/prometheus_node_exporter_role/tree/5.1.0)
 [Full Changelog](https://github.com/idealista/prometheus_node_exporter_role/compare/5.0.0...5.1.0)
 ### Added
