@@ -4,6 +4,7 @@
   template:
     src: node_exporter.environment.j2
     dest: "{{ node_exporter_environment_path }}/node_exporter"
+    mode: 0644
     owner: "{{ node_exporter_user }}"
     group: "{{ node_exporter_group }}"
   notify: restart node_exporter
@@ -15,6 +16,7 @@
   template:
     src: textfile_collector_file.j2
     dest: "{{ node_exporter_textfile_collector_dir }}/{{ filename }}.prom"
+    mode: 0644
     owner: "{{ node_exporter_user }}"
     group: "{{ node_exporter_group }}"
   notify: restart node_exporter

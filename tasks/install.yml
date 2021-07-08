@@ -22,6 +22,7 @@
 - name: NODE_EXPORTER | Ensure skeleton bin and config paths
   file:
     dest: "{{ item }}"
+    mode: 0755
     owner: "{{ node_exporter_user }}"
     group: "{{ node_exporter_group }}"
     state: directory
@@ -34,6 +35,7 @@
 - name: NODE_EXPORTER | Ensure skeleton log paths
   file:
     dest: "{{ item }}"
+    mode: 0755
     owner: "{{ node_exporter_user }}"
     group: "{{ node_exporter_group }}"
     state: directory
