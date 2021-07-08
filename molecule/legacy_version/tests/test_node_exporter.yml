@@ -44,7 +44,7 @@ file:
       - NODE_EXPORTER_COLLECTORS_ENABLED=textfile,diskstats,filesystem,loadavg,meminfo,netdev,stat,filefd
       - NODE_EXPORTER_COLLECTOR_TEXTFILE_DIRECTORY=/opt/node_exporter/textfile_collector
       - NODE_EXPORTER_COLLECTOR_DISKSTATS_IGNORED=^(ram|dm|rootfs|loop|fd|(h|s|v|xv)d[a-z]|nvme\\d+n\\d+p)\\d+$
-      - NODE_EXPORTER_COLLECTOR_FILESYSTEM_IGNORED=^(sys|proc|rootfs|rpc_pipefs|tmpfs)fs$
+      - NODE_EXPORTER_COLLECTOR_FILESYSTEM_IGNORED=^(sys|proc|root|rpc_pipe|tmp)fs$
       - NODE_EXPORTER_LOG_LEVEL=warn
   /etc/systemd/system/node_exporter.service:
     exists: true
