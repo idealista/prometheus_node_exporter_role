@@ -1,7 +1,7 @@
 ---
 dist: bionic
 language: python
-python: "3.7"
+python: "3.9"
 os: linux
 services:
   - docker
@@ -12,7 +12,6 @@ env:
   jobs:
     - MOLECULE_DISTRO=debian:buster-slim
     - MOLECULE_DISTRO=debian:stretch-slim
-    - MOLECULE_DISTRO=debian:jessie-slim
 script:
   - pipenv run molecule test --all
 
