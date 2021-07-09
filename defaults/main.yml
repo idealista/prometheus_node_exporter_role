@@ -54,10 +54,13 @@ node_exporter_path: metrics
 node_exporter_collectors_enabled: textfile,diskstats,filesystem,loadavg,meminfo,netdev,stat,filefd
 node_exporter_textfile_collector_dir: "{{ node_exporter_root_path }}/textfile_collector"
 node_exporter_collector_diskstats_ignored_devices: ^(ram|dm|rootfs|loop|fd|(h|s|v|xv)d[a-z]|nvme\\d+n\\d+p)\\d+$
-node_exporter_collector_filesystem_ignored_fs_types: ^(sys|proc|rootfs|rpc_pipefs|tmpfs)fs$
+node_exporter_collector_filesystem_ignored_fs_types: ^(sys|proc|root|rpc_pipe|tmp)fs$
+# It's recommended to avoid collecting on nfs filesystems because if they are
+# in stale, node exporter requests are stalled too:
+# node_exporter_collector_filesystem_ignored_fs_types: ^(sys|proc|root|rpc_pipe|tmp|n)fs4?$
 
 # Roles
-#node_exporter_textfile_collector_files:
+# node_exporter_textfile_collector_files:
 #  - "filename":
 #    - metric_name: "metric_name"
 #      metric_labels:

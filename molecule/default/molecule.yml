@@ -6,7 +6,6 @@ driver:
 lint: |
     yamllint .
     ansible-lint .
-
 platforms:
   - name: nodeexporter
     groups:
@@ -25,8 +24,6 @@ platforms:
     stop_signal: 'RTMIN+3'
 provisioner:
   name: ansible
-  lint:
-    name: ansible-lint
 scenario:
   name: default
 verifier:
