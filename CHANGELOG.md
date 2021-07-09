@@ -4,7 +4,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter_role/tree/develop)
-### Changed
+
+## [5.3.0](https://github.com/idealista/prometheus_node_exporter_role/tree/5.3.0)
+[Full Changelog](https://github.com/idealista/prometheus_node_exporter_role/compare/5.2.0...5.3.0)
+### Fixed
  - *[#59](https://github.com/idealista/prometheus_node_exporter_role/issues/59) Fix avoiding collect filesystem regex* @ftsao
  - *Updated test requirements: ansible 4.2.0, molecule 3.3.4* @ftsao
 
