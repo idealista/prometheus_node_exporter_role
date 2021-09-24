@@ -5,6 +5,11 @@
   tags:
     - node_exporter_vars
 
+- name: NODE EXPORTER | Define node_exporter_required_libs
+  set_fact:
+    node_exporter_required_libs: "{{ __node_exporter_required_libs }}"
+  when: node_exporter_required_libs is not defined
+
 - name: NODE_EXPORTER | Install
   import_tasks: install.yml
   tags:

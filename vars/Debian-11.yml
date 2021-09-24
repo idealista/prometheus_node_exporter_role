@@ -1,3 +1,4 @@
 ---
 
-__node_exporter_httplib2: python3-httplib2
+__node_exporter_required_libs:
+  - python3-httplib2

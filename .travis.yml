@@ -12,7 +12,6 @@ env:
   jobs:
     - MOLECULE_DISTRO=debian:bullseye-slim
     - MOLECULE_DISTRO=debian:buster-slim
-    - MOLECULE_DISTRO=debian:stretch-slim
   global:
     - PY_COLOR=1
     - ANSIBLE_FORCE_COLOR=1
