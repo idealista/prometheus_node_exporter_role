@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file.
 This project adheres to [Semantic Versioning](http://semver.org/) and [Keep a changelog](https://github.com/olivierlacan/keep-a-changelog).
 
 ## [Unreleased](https://github.com/idealista/prometheus_node_exporter_role/tree/develop)
+
+
+## [6.0.0](https://github.com/idealista/prometheus_node_exporter_role/tree/6.0.0)
+[Full Changelog](https://github.com/idealista/prometheus_node_exporter_role/compare/5.3.0...6.0.0)
 ### Added
  - *[#62](https://github.com/idealista/prometheus_node_exporter_role/issues/62) Add support for Debian 11* @blalop
 ### Changed
