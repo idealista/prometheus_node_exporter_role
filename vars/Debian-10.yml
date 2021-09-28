@@ -1,0 +1,4 @@
+---
+
+__node_exporter_required_libs:
+  - python-httplib2
